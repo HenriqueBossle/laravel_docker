@@ -3,8 +3,8 @@ FROM php:8.3-apache
 
 # Instalar dependências do sistema e extensões necessárias do Laravel
 RUN apt-get update && apt-get install -y \
-    git curl libpng-dev libjpeg-dev libfreetype6-dev zip unzip libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+    git curl libpng-dev libjpeg-dev libfreetype6-dev zip unzip libonig-dev libxml2-dev libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd
 
 # Habilitar mod_rewrite do Apache (necessário para Laravel)
 RUN a2enmod rewrite
